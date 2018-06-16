@@ -4,7 +4,7 @@ import os
 import pymongo
 import json
 import flask
-from flask import Flask
+from flask import Flask, render_template
 from flask import jsonify
 from flask import request
 from flask_pymongo import PyMongo
@@ -41,11 +41,7 @@ def import_content(filepath):
 
 @app.route('/')
 def main():
-    all_data = mongo.db.all_month
-    output = []
-    for s in all_data.find():
-        output.append({'place' : s['place']})
-    return jsonify({'result' : output})
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
