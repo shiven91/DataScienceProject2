@@ -1,6 +1,5 @@
 beautifulsoup4==4.6.0
 citipy==0.0.5
-conda==4.4.10
 Flask==0.12.2
 Flask-Cors==3.0.3
 flask-mongoengine==0.9.5
