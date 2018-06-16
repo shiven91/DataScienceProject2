@@ -1,1 +1,1 @@
-worker: python app.py
+worker: gunicorn project.app::app

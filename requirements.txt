@@ -36,3 +36,4 @@ seaborn==0.8
 splinter==0.8.0
 SQLAlchemy==1.1.13
 tweepy==3.6.0
+gunicorn==19.8.1
