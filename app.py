@@ -8,10 +8,11 @@ from flask import Flask
 from flask import jsonify
 from flask import request
 from flask_pymongo import PyMongo
+from sensitive import uri
 
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'earthquake'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/earthquake'
+app.config['MONGO_URI'] = uri
 
 mongo = PyMongo(app)
 
@@ -26,8 +27,8 @@ cleaned_df["place"] = cleaned_df["place"].str.split("of").str[1]
 cleaned_df.to_csv("cleanedNewData.csv")
 
 def import_content(filepath):
-    mng_client = pymongo.MongoClient('localhost', 27017)
-    mng_db = mng_client['earthquake']
+    client = pymongo.MongoClient(uri)
+    mng_db = client["earthquake"]
     collection_name = 'all_month'
     db_cm = mng_db[collection_name]
     cdir = os.path.dirname(__file__)
@@ -38,8 +39,8 @@ def import_content(filepath):
     db_cm.remove()
     db_cm.insert(data_json)
 
-@app.route('/data')
-def get_all_data():
+@app.route('/')
+def main():
     all_data = mongo.db.all_month
     output = []
     for s in all_data.find():
