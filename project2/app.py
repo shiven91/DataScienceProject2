@@ -16,7 +16,7 @@ app.config['MONGO_URI'] = uri_key
 
 mongo = PyMongo(app)
 
-data_file = os.path.join("data","all_month.csv")
+data_file = os.path.join("all_month.csv")
 
 all_month_pd = pd.read_csv(data_file)
 all_month_pd['time'] = pd.to_datetime(all_month_pd['time'])
