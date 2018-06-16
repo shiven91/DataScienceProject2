@@ -16,15 +16,15 @@ app.config['MONGO_URI'] = uri_key
 
 mongo = PyMongo(app)
 
-data_file = "all_month.csv"
+# data_file = "all_month.csv"
 
-all_month_pd = pd.read_csv(data_file)
-all_month_pd['time'] = pd.to_datetime(all_month_pd['time'])
-all_month_pd['Date'] = all_month_pd['time'].dt.strftime('%Y-%m-%d')
-all_month_pd['Time'] = all_month_pd['time'].dt.strftime('%H:%M:%S')
-cleaned_df = all_month_pd[["Date","Time","latitude","longitude","mag","type","place"]].copy()
-cleaned_df["place"] = cleaned_df["place"].str.split("of").str[1]
-cleaned_df.to_csv("cleanedNewData.csv")
+# all_month_pd = pd.read_csv(data_file)
+# all_month_pd['time'] = pd.to_datetime(all_month_pd['time'])
+# all_month_pd['Date'] = all_month_pd['time'].dt.strftime('%Y-%m-%d')
+# all_month_pd['Time'] = all_month_pd['time'].dt.strftime('%H:%M:%S')
+# cleaned_df = all_month_pd[["Date","Time","latitude","longitude","mag","type","place"]].copy()
+# cleaned_df["place"] = cleaned_df["place"].str.split("of").str[1]
+# cleaned_df.to_csv("cleanedNewData.csv")
 
 def import_content(filepath):
     client = pymongo.MongoClient(uri_key)
