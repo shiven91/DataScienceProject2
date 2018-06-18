@@ -43,6 +43,10 @@ def import_content(filepath):
 def main():
     return render_template("home.html")
 
+@app.route('/index.html')
+def data_visualization():
+    return render_template("index.html")
+
 
 if __name__ == "__main__":
     filepath = os.path.join("cleanedNewData.csv")
