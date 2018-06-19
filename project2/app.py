@@ -41,9 +41,9 @@ def import_content(filepath):
 
 @app.route('/')
 def main():
-    return render_template("home1.html")
+    return render_template("landingpage.html")
 
-@app.route('/dataVisualization')
+@app.route('/datavisualization')
 def data_visualization():
     return render_template("index.html")
 
