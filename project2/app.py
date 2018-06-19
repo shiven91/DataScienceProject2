@@ -43,9 +43,10 @@ def import_content(filepath):
 def main():
     return render_template("landingpage.html")
 
-@app.route('/datavisualization')
+@app.route('/datavisualization', methods=['GET'])
 def data_visualization():
-    return render_template("index.html")
+    if request.method == 'GET':
+        return render_template('new.html')
 
 
 if __name__ == "__main__":
