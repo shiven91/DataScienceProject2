@@ -43,6 +43,9 @@ def import_content(filepath):
 def main():
     return render_template("landingpage.html")
 
+@app.route("/dataVisualization/", methods=['POST'])
+def dataVisualization():
+    return render_template('index.html');
 
 if __name__ == "__main__":
     filepath = os.path.join("cleanedNewData.csv")
