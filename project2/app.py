@@ -45,7 +45,7 @@ def main():
 
 @app.route("/dataVisualization/", methods=['POST'])
 def dataVisualization():
-    return render_template('index.html');
+    return render_template('index.html')
 
 if __name__ == "__main__":
     filepath = os.path.join("cleanedNewData.csv")
