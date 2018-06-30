@@ -46,8 +46,8 @@ def earthquakedata():
             "properties" : {"mag":[d["mag"]]},
         } for d in projects]
     }
-    json_projects = json.dumps(geojson)
-    return json_projects
+    json_projects.append(data)
+    return jsonify(json_projects)
 
 if __name__ == "__main__":
     app.run()
