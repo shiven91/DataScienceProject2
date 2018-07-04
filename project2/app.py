@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 def main():
     return render_template("landingpage.html")
 
-@app.route("/dataVisualization/", methods=['POST'])
+@app.route("/dataVisualization")
 def dataVisualization():
     return render_template('heatmap_2.html')
 
