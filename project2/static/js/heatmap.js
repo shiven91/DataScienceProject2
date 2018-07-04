@@ -130,5 +130,5 @@ return magnitude > 5 ? "red":
 // Function to amplify circle size by earthquake magnitude
 //----------------------------------------------------------------------------
 function markerSize(magnitude) {
-  return magnitude * 5;
+  return magnitude * 2;
 };
