@@ -30,24 +30,26 @@ def dataVisualization():
 
 @app.route("/earthquakedata")
 def earthquakedata():
-    connection = pymongo.MongoClient(uri_key)
+    connection = pymongo.MongoClient(uri)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).limit(1000)
+    projects = collection.find({},{"_id":False}).limit(100)
     json_projects = []
-    geojson = {
+    data = {
         "type": "FeatureCollection",
         "features": [
         {
             "type": "Feature",
+
+            "properties" : {"mag":[d["mag"]], "place":[d["place"]]},
+
             "geometry" : {
                 "type": "Point",
                 "coordinates": [d["longitude"], d["latitude"]],
                 },
-            "properties" : {"mag":[d["mag"]]},
         } for d in projects]
     }
-    json_projects.append(geojson)
-    return jsonify(json_projects)
+    json_projects.append(data)
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run()
