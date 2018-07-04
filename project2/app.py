@@ -26,7 +26,7 @@ def main():
 
 @app.route("/dataVisualization/", methods=['POST'])
 def dataVisualization():
-    return render_template('index.html')
+    return render_template('heatmap_2.html')
 
 @app.route("/earthquakedata")
 def earthquakedata():
