@@ -28,3 +28,4 @@ tweepy==3.6.0
 gunicorn==19.8.1
 dnspython==1.15.0
 distributed==1.19.1
+geojson==2.4.0
