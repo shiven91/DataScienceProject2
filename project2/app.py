@@ -40,7 +40,7 @@ def earthquakedata():
         {
             "type": "Feature",
 
-            "properties" : {"mag":[d["mag"]], "place":[d["place"]]},
+            "properties" : {"mag":[d["mag"]], "place":[d["place"]], "date":[d["Date"]]},
 
             "geometry" : {
                 "type": "Point",
