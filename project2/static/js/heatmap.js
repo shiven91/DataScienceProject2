@@ -78,8 +78,8 @@ function renderMap(earthquakeURL) {
 
       // Create map, default settings: outdoors and faultLines layers display on load
       var map = L.map("map", {
-          center: [39.8283, -98.5785],
-          zoom: 3,
+          center: [0, 0],
+          zoom: 2,
           layers: [darkmap,earthquakes],
           scrollWheelZoom: false
       });
