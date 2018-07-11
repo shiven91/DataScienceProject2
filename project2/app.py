@@ -32,7 +32,7 @@ def dataVisualization():
 def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).limit(10000)
+    projects = collection.find({},{"_id":False})
     json_projects = []
     data = {
         "type": "FeatureCollection",
@@ -50,6 +50,12 @@ def earthquakedata():
     }
     json_projects.append(data)
     return jsonify(data)
+
+@app.route("/selectdata")
+def earthquakedata():
+    connection = pymongo.MongoClient(uri_key)
+    collection = connection["earthquake"]["all_records"]
+    projects = collection.find({},{"_id":False}).limit(10000)
 
 if __name__ == "__main__":
     app.run()
