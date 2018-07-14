@@ -35,7 +35,7 @@ function renderMap(earthquakeURL) {
       };
 
       function onEachEarthquake(feature, layer) {
-        layer.bindPopup("<h3>" + feature.properties.place + "</h3>" 
+        layer.bindPopup("<h3>" + feature.properties.date + "</h3"+ "<h3>" + feature.properties.place + "</h3>" 
           + "<hr><p>Magnitude: " + feature.properties.mag + "</p>");
       };
 
