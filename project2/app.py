@@ -22,7 +22,6 @@ mongo = PyMongo(app)
 connection = pymongo.MongoClient(uri_key)
 collection = connection["earthquake"]["all_records"]
 projects = collection.find({},{"_id":False}).limit(25000)
-json_projects = []
 data = {
     "type": "FeatureCollection",
     "features": [
@@ -37,7 +36,6 @@ data = {
             },
     } for d in projects]
 }
-json_projects.append(data)
 
 @app.route('/')
 def main():
