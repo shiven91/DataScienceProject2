@@ -35,8 +35,8 @@ function renderMap(earthquakeURL) {
       };
 
       function onEachEarthquake(feature, layer) {
-        layer.bindPopup("<h2>" + feature.properties.date + "</h2>"+ "<hr><h3>" + feature.properties.place + "</h3>" 
-          + "<hr><p>Magnitude: " + feature.properties.mag + "</p>");
+        layer.bindPopup("<hr><h3>" + feature.properties.place + "</h3>" 
+            + "<hr><p>Magnitude: " + feature.properties.mag + "</p>");
       };
 
       // Creates a GeoJSON layer containing the features array of the earthquakeData object

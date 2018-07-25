@@ -34,23 +34,23 @@ def dataVisualization():
 def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).random(1000)
-    json_projects = []
+    projects = collection.find({},{"_id":False}).limit(1000)
+    # json_projects = []
     data = {
         "type": "FeatureCollection",
         "features": [
         {
             "type": "Feature",
 
-            "properties" : {"mag":[d["mag"]], "place":[d["place"]], "date":[d["Date"]]},
+            "properties" : {"mag":[d["mag"]], "place":[d["place"]], "time":[d["time"]]},
 
             "geometry" : {
                 "type": "Point",
-                "coordinates": [d["longitude"], d["latitude"]],
+                "coordinates": [d["longitude"], d["latitude"],d["depth"]],
                 },
         } for d in projects]
     }
-    json_projects.append(data)
+    # json_projects.append(data)
     return jsonify(data)
 
 # @app.route("/selectdata")
