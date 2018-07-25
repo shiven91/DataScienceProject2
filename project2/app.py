@@ -5,6 +5,7 @@ import pymongo
 import json
 import flask
 import geojson
+import random
 from flask import Flask, render_template
 from flask import jsonify
 from flask import request
@@ -19,23 +20,7 @@ app.config['MONGO_DBNAME'] = 'earthquake'
 app.config['MONGO_URI'] = uri_key
 
 mongo = PyMongo(app)
-connection = pymongo.MongoClient(uri_key)
-collection = connection["earthquake"]["all_records"]
-projects = collection.find({},{"_id":False}).limit(25000)
-data = {
-    "type": "FeatureCollection",
-    "features": [
-    {
-        "type": "Feature",
 
-        "properties" : {"mag":[d["mag"]], "place":[d["place"]], "date":[d["Date"]]},
-
-        "geometry" : {
-            "type": "Point",
-            "coordinates": [d["longitude"], d["latitude"]],
-            },
-    } for d in projects]
-}
 
 @app.route('/')
 def main():
@@ -47,25 +32,25 @@ def dataVisualization():
 
 @app.route("/earthquakedata")
 def earthquakedata():
-    # connection = pymongo.MongoClient(uri_key)
-    # collection = connection["earthquake"]["all_records"]
-    # projects = collection.find({},{"_id":False}).limit(25000)
-    # json_projects = []
-    # data = {
-    #     "type": "FeatureCollection",
-    #     "features": [
-    #     {
-    #         "type": "Feature",
+    connection = pymongo.MongoClient(uri_key)
+    collection = connection["earthquake"]["all_records"]
+    projects = collection.find({},{"_id":False}).random(1000)
+    json_projects = []
+    data = {
+        "type": "FeatureCollection",
+        "features": [
+        {
+            "type": "Feature",
 
-    #         "properties" : {"mag":[d["mag"]], "place":[d["place"]], "date":[d["Date"]]},
+            "properties" : {"mag":[d["mag"]], "place":[d["place"]], "date":[d["Date"]]},
 
-    #         "geometry" : {
-    #             "type": "Point",
-    #             "coordinates": [d["longitude"], d["latitude"]],
-    #             },
-    #     } for d in projects]
-    # }
-    # json_projects.append(data)
+            "geometry" : {
+                "type": "Point",
+                "coordinates": [d["longitude"], d["latitude"]],
+                },
+        } for d in projects]
+    }
+    json_projects.append(data)
     return jsonify(data)
 
 # @app.route("/selectdata")
