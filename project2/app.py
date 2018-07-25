@@ -36,17 +36,17 @@ def earthquakedata():
     collection = connection["earthquake"]["all_records"]
     projects = collection.find({},{"_id":False}).limit(1000)
     json_projects = []
-    data = {
+      data = {
         "type": "FeatureCollection",
         "features": [
         {
             "type": "Feature",
 
-            "properties" : {"mag":[d["mag"]], "place":[d["place"]], "date":[d["Date"]]},
+            "properties" : {"mag":[d["mag"]], "place":[d["place"]], "time":[d["time"]]},
 
             "geometry" : {
                 "type": "Point",
-                "coordinates": [d["longitude"], d["latitude"]],
+                "coordinates": [d["longitude"], d["latitude"],d["depth"]],
                 },
         } for d in projects]
     }
