@@ -35,8 +35,8 @@ def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
     projects = collection.find({},{"_id":False}).limit(1000)
-    json_projects = []
-      data = {
+    # json_projects = []
+    data = {
         "type": "FeatureCollection",
         "features": [
         {
@@ -50,7 +50,7 @@ def earthquakedata():
                 },
         } for d in projects]
     }
-    json_projects.append(data)
+    # json_projects.append(data)
     return jsonify(data)
 
 # @app.route("/selectdata")
