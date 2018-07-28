@@ -26,7 +26,7 @@ mongo = PyMongo(app)
 def main():
     return render_template("landingpage.html")
 
-app.route('/heatmap', method=["POST"])
+app.route('/heatmap', method=["GET"])
 def heatmap():
     return render_template("heatmap_2.html")
 
