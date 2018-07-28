@@ -58,7 +58,7 @@ function myFunction(event) {
     var y;
     var x;
     // Create the scatterplot with the scatterplot data
-    var scatterplot = "/geojson"
+    var scatterplot = "/geojson";
     d3.json(scatterplot, function (error, data) {
         if (error) console.log(error);
         console.log(data);
