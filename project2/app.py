@@ -26,6 +26,18 @@ mongo = PyMongo(app)
 def main():
     return render_template("landingpage.html")
 
+app.route('/heatmap')
+def main():
+    return render_template("heatmap_2.html")
+
+app.route('/tableau')
+def main():
+    return render_template("dashboard.html")
+
+app.route('/d3')
+def main():
+    return render_template("scatterplot.html")
+
 @app.route("/earthquakedata")
 def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
