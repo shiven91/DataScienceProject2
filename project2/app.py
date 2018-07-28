@@ -26,15 +26,15 @@ mongo = PyMongo(app)
 def main():
     return render_template("landingpage.html")
 
-app.route('/heatmap', method=["POST"])
-def heatmap():
+@app.route('/heatmap')
+def heatmapRoute():
     return render_template("heatmap_2.html")
 
-app.route('/tableau')
+@app.route('/tableau')
 def tableau():
     return render_template("dashboard.html")
 
-app.route('/d3')
+@app.route('/d3')
 def d3():
     return render_template("scatterplot.html")
 

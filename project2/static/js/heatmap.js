@@ -33,6 +33,10 @@ function renderMap(earthquakeURL) {
           });
       };
 
+    //   function cluster(feature, layer){
+    //       return L.markerClusterGroup()
+    //   };
+      
       function onEachEarthquake(feature, layer) {
         layer.bindPopup("<hr><h3>" + feature.properties.place + "</h3>" 
             + "<hr><p>Magnitude: " + feature.properties.mag + "</p>");
@@ -44,6 +48,8 @@ function renderMap(earthquakeURL) {
         onEachFeature: onEachEarthquake,
         pointToLayer: onEachQuakeLayer
       });
+
+    //   cluster.addLayer(earthquakes);
 
       // Sends earthquakes, fault lines and timeline layers to the createMap function
       createMap(earthquakes);
@@ -77,8 +83,8 @@ function renderMap(earthquakeURL) {
 
       // Create map, default settings: outdoors and faultLines layers display on load
       var map = L.map("map", {
-          center: [0, 0],
-          zoom: 2,
+          center: [39.8283, -98.5785],
+          zoom: 4,
           layers: [darkmap,earthquakes],
           scrollWheelZoom: false
       });
