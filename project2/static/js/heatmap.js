@@ -84,8 +84,8 @@ function renderMap(earthquakeURL) {
       // Create map, default settings: outdoors and faultLines layers display on load
       var map = L.map("map", {
           center: [39.8283, -98.5785],
-          zoom: 4,
-          layers: [darkmap,earthquakes],
+          zoom: 8,
+          layers: [satellite,earthquakes],
           scrollWheelZoom: false
       });
 
@@ -137,9 +137,13 @@ return magnitude > 5 ? "red":
 function markerSize(magnitude) {
   return magnitude * 2;
 };
-
+//----------------------------------------------------------------------------
+// Function to display TABLEAU
+//----------------------------------------------------------------------------
 function initViz() {
 	var containerDiv = document.getElementById("tableauViz");
 	var url = "https://public.tableau.com/shared/X6J8BKPDZ?:display_count=yes";
 	var viz = new tableau.Viz(containerDiv, url); 
 };
+initViz();
+//----------------------------------------------------------------------------
