@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  body {
+    font: 10px sans-serif;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .dot {
+    fill: rgb(70, 180, 180);
+    stroke: rgb(20, 30, 165);
+  }
+
+  .dot:hover {
+    fill: rgba(255, 251, 0, 0.918);
+  }
+
+  .tooltip {
+    position: absolute;
+    /* text-align: center; */
+    vertical-align: top;
+    width: auto;
+    /* height: 25px;                  */
+    padding: 5px;
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 50%;
+    background: rgb(221, 123, 123);
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
+    border: 2px;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .tooltip div {
+    margin: 5px
+  }
+</style>
+
+<body>
+<form id="myForm" action="">
+  
+  <div>
+    <select name="month-sel" id="monthSelector">
+      <option value="1">January</option>
+      <option value="2">Feb</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+    </select>
+  </div>
+  
+  <div>
+    <select name="day-sel" id="daySelector">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+  <div>
+    <select name="year-sel" id="yearSelector">
+      <option value="2010">2010</option>
+      <option value="2011">2011</option>
+      <option value="2012">2012</option>
+      <option value="2013">2013</option>
+      <option value="2014">2014</option>
+      <option value="2015">2015</option>
+      <option value="2016">2016</option>
+    </select>
+  </div>
+  <input type="submit">
+</form>
+  
+  <svg width="1200" height="500"></svg>
+  <script src="//d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="../static/js/scatterplot.js"></script>
+
+</body>
+
+</html>
