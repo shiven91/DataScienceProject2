@@ -50,12 +50,12 @@ def earthquakedata():
     return jsonify(data)
 
 @app.route("/geojson")
-def earthquakedata():
+def geojsonSample():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
     projects = collection.find({},{"_id":False}).limit(2)
-    json_projects = []
-    data = {
+    sample = []
+    sampleData = {
         "type": "FeatureCollection",
         "features": [
         {
@@ -69,8 +69,8 @@ def earthquakedata():
                 },
         } for d in projects]
     }
-    json_projects.append(data)
-    return jsonify(data)
+    sample.append(sampleData)
+    return jsonify(sample)
 
 if __name__ == "__main__":
     app.run()
