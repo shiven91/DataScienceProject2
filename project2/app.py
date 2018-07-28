@@ -27,15 +27,15 @@ def main():
     return render_template("landingpage.html")
 
 app.route('/heatmap')
-def main():
+def heatmap():
     return render_template("heatmap_2.html")
 
 app.route('/tableau')
-def main():
+def tableau():
     return render_template("dashboard.html")
 
 app.route('/d3')
-def main():
+def d3():
     return render_template("scatterplot.html")
 
 @app.route("/earthquakedata")
