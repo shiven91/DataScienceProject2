@@ -42,7 +42,7 @@ def d3():
 def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).limit(25000)
+    projects = collection.find({},{"_id":False}).limit(20000)
     # json_projects = []
     data = {
         "type": "FeatureCollection",
@@ -65,7 +65,7 @@ def earthquakedata():
 def geojsonSample():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).limit(2)
+    projects = collection.find({},{"_id":False}).limit(100)
     sample = []
     sampleData = {
         "type": "FeatureCollection",
@@ -82,7 +82,7 @@ def geojsonSample():
         } for d in projects]
     }
     sample.append(sampleData)
-    return jsonify(sample)
+    return jsonify(sampleData)
 
 if __name__ == "__main__":
     app.run()
