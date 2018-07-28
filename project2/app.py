@@ -42,7 +42,7 @@ def d3():
 def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).limit(10000)
+    projects = collection.find({},{"_id":False}).limit(20000)
     # json_projects = []
     data = {
         "type": "FeatureCollection",
