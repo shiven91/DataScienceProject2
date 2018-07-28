@@ -27,7 +27,7 @@ def main():
     return render_template("landingpage.html")
 
 app.route('/heatmap')
-def heatmap():
+def heatmapRoute():
     return render_template("heatmap_2.html")
 
 app.route('/tableau')
