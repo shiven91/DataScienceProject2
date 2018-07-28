@@ -26,15 +26,19 @@ mongo = PyMongo(app)
 def main():
     return render_template("landingpage.html")
 
-@app.route("/dataVisualization")
+@app.route("/heatmap")
 def dataVisualization():
     return render_template('heatmap_2.html')
+
+@app.route("/tableau")
+def dataVisualization():
+    return render_template('dashboard.html')
 
 @app.route("/earthquakedata")
 def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).limit(1000)
+    projects = collection.find({},{"_id":False}).limit(25000)
     # json_projects = []
     data = {
         "type": "FeatureCollection",
