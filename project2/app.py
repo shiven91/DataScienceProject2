@@ -26,15 +26,11 @@ mongo = PyMongo(app)
 def main():
     return render_template("landingpage.html")
 
-@app.route("/dataVisualization")
-def dataVisualization():
-    return render_template('heatmap_2.html')
-
 @app.route("/earthquakedata")
 def earthquakedata():
     connection = pymongo.MongoClient(uri_key)
     collection = connection["earthquake"]["all_records"]
-    projects = collection.find({},{"_id":False}).limit(1000)
+    projects = collection.find({},{"_id":False}).limit(25000)
     # json_projects = []
     data = {
         "type": "FeatureCollection",
@@ -53,11 +49,28 @@ def earthquakedata():
     # json_projects.append(data)
     return jsonify(data)
 
-# @app.route("/selectdata")
-# def earthquakedata():
-#     connection = pymongo.MongoClient(uri_key)
-#     collection = connection["earthquake"]["all_records"]
-#     projects = collection.find({},{"_id":False}).limit(10000)
+@app.route("/geojson")
+def geojsonSample():
+    connection = pymongo.MongoClient(uri_key)
+    collection = connection["earthquake"]["all_records"]
+    projects = collection.find({},{"_id":False}).limit(2)
+    sample = []
+    sampleData = {
+        "type": "FeatureCollection",
+        "features": [
+        {
+            "type": "Feature",
+
+            "properties" : {"mag":[d["mag"]], "place":[d["place"]], "time":[d["time"]]},
+
+            "geometry" : {
+                "type": "Point",
+                "coordinates": [d["longitude"], d["latitude"],d["depth"]],
+                },
+        } for d in projects]
+    }
+    sample.append(sampleData)
+    return jsonify(sample)
 
 if __name__ == "__main__":
     app.run()

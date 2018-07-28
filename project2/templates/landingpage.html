@@ -12,22 +12,31 @@
 </head>
 <body>
     <div class="w3-top">
-            <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-                <a href="#home" class="w3-bar-item w3-button">Team Alpha</a>
-                <!-- Right-sided navbar links. Hide them on small screens -->
-                <div class="w3-right w3-hide-small">
-                    <a href="#about" class="w3-bar-item w3-button">About</a>
-                    <a href="#Team" class="w3-bar-item w3-button">Team</a>
+            <div class="w3-row  w3-padding w3-black">
+                <div class="w3-col s3">
+                <a href="#" class="w3-button w3-block w3-black">Home</a>
+                </div>
+                <div class="w3-col s3">
+                <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+                </div>
+                <div class="w3-col s3">
+                <a href="#Team" class="w3-button w3-block w3-black">TEAM</a>
+                </div>
+                <div class="w3-dropdown-hover w3-col s3">
+                    <button href="#where" class="w3-button w3-block w3-black">Data visualizations</button>
+                    <div class="w3-dropdown-content w3-col w3-padding w3-black">
+                            <a href="../templates/heatmap_2.html" class="w3-block w3-button">Heatmap</a>
+                            <a href="../templates/dashboard.html" class="w3-block w3-button">Tableau</a>
+                            <a href="#" class="w3-block w3-button">D3</a>
+                    </div>
                 </div>
             </div>
     </div>
-    <section class="intro">
-        <div class="inner">
-            <div class="content">
-                <a class="btn" href="#about">Team Alpha</a>
-            </div>
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">TEAM <span class="w3-hide-small">ALPHA</span></span>
         </div>
-    </section> 
+    </div>
 <!-- <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
         <img class="w3-image" src="../static/background_homepage.jpg" alt="APLHA" width="1600" height="">
         <div class="w3-padding-large w3-opacity">
@@ -35,7 +44,7 @@
         </div>
 </header> -->
 
-<div class="w3-content" style="max-width:1100px">
+<div class="w3-content " style="max-width:1100px">
 
         <!-- About Section -->
         <div class="w3-row w3-padding-64" id="about">
@@ -49,15 +58,10 @@
                     Ever wonder if where you go on vacation or where you want to live in the world is prone to natural disasters such as Earthquakes? 
                     We are here to demonstrate the visualizations that clearly depict years of earthquake data from the USGS.gov site in order to show 
                     a correlation or a trend of which can ultimately determine the predictability or likelihood of and earthquake occurring in a specific 
-                    location of your choosing based on its occurrence throughout the years. Through the usage of Python, JavaScript, D3, Leaftlet and MongoDB Atlas 
+                    location of your choosing based on its occurrence throughout the years. Through the usage of Python, JavaScript, D3, Leaftlet, Tableau and MongoDB Atlas 
                     we are able to produce interactive geo-graphical visualizations, multifunctional diagrams and data analysis to help answer some of those concerns. </p>
                 <p class="w3-hide-medium">Please click the link below to see it all come to life.  Enjoy the show!</p>
                 <p class="w3-large w3-text-grey w3-hide-medium"></p>
-                <div class="w3-center">
-                <form action="/dataVisualization">
-                    <button class="w3-button w3-light-grey w3-section" name="forwardBtn" type="submit">HeatMap</button>
-                </form>
-                </div>
             </div>
         </div>
         
@@ -112,6 +116,12 @@
             </div>
           </div>
         </div>
-      </div>
+</div>
+    <div class="w3-white w3-margin w3-center">
+            <div class="w3-container w3-xxxlarge ">
+                <h2>Team Alpha</h2>
+                <i class="fa fa-github w3-hover-opacity"></i>
+            </div>
+    </div>
 </body>
 </html>

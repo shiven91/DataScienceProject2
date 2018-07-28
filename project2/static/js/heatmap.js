@@ -7,7 +7,6 @@ var earthquakeURL = "/earthquakedata";
 // Calls function to render map
 //----------------------------------------------------------------------------
 renderMap(earthquakeURL);
-
 //----------------------------------------------------------------------------
 // Function to render map
 //----------------------------------------------------------------------------
@@ -131,4 +130,10 @@ return magnitude > 5 ? "red":
 //----------------------------------------------------------------------------
 function markerSize(magnitude) {
   return magnitude * 2;
+};
+
+function initViz() {
+	var containerDiv = document.getElementById("tableauViz");
+	var url = "https://public.tableau.com/shared/X6J8BKPDZ?:display_count=yes";
+	var viz = new tableau.Viz(containerDiv, url); 
 };
