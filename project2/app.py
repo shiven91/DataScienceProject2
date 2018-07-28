@@ -82,7 +82,7 @@ def geojsonSample():
         } for d in projects]
     }
     sample.append(sampleData)
-    return jsonify(sample)
+    return jsonify(sampleData)
 
 if __name__ == "__main__":
     app.run()

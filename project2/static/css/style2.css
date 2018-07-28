@@ -10,6 +10,7 @@ body,
 html {
     height: 100%;
     background-color: #76ffff;
+    background-image: url("heatmapbackground.jpg")
 }
 
 h3,
